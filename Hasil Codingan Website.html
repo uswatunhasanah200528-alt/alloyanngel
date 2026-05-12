@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknologi Metalurgi Ekstraksi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        .logo i { margin-right: 10px; font-size: 2rem; color: #ffd700; }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #ffd700; }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(30,60,114,0.9), rgba(42,82,152,0.9)),
+                        url('https://awsimages.detik.net.id/visual/2018/03/23/0a5fb30f-6358-4ff3-8df0-94c5e0e221e6.jpeg?w=650');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        section { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Partners */
+        .partners {
+            background: #f8f9fa;
+            text-align: center;
+        }
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .partner-logo {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        .partner-logo:hover { transform: translateY(-5px); }
+
+        /* About */
+        .about { background: #f8f9fa; }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .feature i {
+            background: #ffd700;
+            color: #1e3c72;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        /* Programs */
+        .programs { background: white; }
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Brosur */
+        .brosur {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+        }
+        .brosur img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin-top: 2rem;
+        }
+
+        /* Contact */
+        .contact { background: #f8f9fa; }
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            margin-bottom: 2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .contact-item i {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+        .form-group textarea { height: 120px; resize: vertical; }
+        .submit-btn {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30,60,114,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1e3c72;
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .nav-links.active { display: flex; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .section-title { font-size: 2rem; }
+            .partners-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-industry"></i>
+                TEKNOLOGI METALURGI EKSTRAKSI
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#partners">Mitra</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#programs">Program</a></li>
+                <li><a href="#brosur">visi misi</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+                                   <h1>Teknologi Metalurgi Ekstraksi</h1>
+                                 <p>FAKULTAS VOKASI UNIVERSITAS HASANUDDIN</p>
+            <a href="#contact" class="cta-button">Hubungi Kami</a>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section id="partners" class="partners">
+        <div class="container">
+            <h2 class="section-title">Mitra Industri Strategis</h2>
+            <div class="partners-grid">
+                <div class="partner-logo"><i class="fas fa-mountain" style="font-size: 2.5rem; color: #d32f2f;"></i><div><strong>VALE</strong></div></div>
+                <div class="partner-logo"><i class="fas fa-industry" style="font-size: 2.5rem; color: #1976d2;"></i><div><strong>IMIP</strong></div></div>
+                <div class="partner-logo"><i class="fas fa-cogs" style="font-size: 2.5rem; color: #388e3c;"></i><div><strong>IWP</strong></div></div>
+                <div class="partner-logo"><i class="fas fa-building" style="font-size: 2.5rem; color: #f57c00;"></i><div><strong>QIMB</strong></div></div>
+                <div class="partner-logo"><i class="fas fa-hard-hat" style="font-size: 2.5rem; color: #7b1fa2;"></i><div><strong>HUAYO</strong></div></div>
+                <div class="partner-logo"><i class="fas fa-landmark" style="font-size: 2.5rem; color: #e65100;"></i><div><strong>PEMDA DOMPU</strong></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Program D4 Unggulan</h2>
+            <p class="section-subtitle">Sarjana Terapan Teknologi Metalurgi Ekstraksi dengan kurikulum berbasis industri terkini</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Keunggulan Program</h3>
+                    <p>Program D4 Teknologi Metalurgi Ekstraksi Fakultas Vokasi UNHAS menyiapkan lulusan siap kerja di industri pertambangan dan pengolahan logam terbesar di dunia.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-certificate"></i>
+                            <span>Praktik industri 70%</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Kemudahan akses magang di perusaan besar </span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-handshake"></i>
+                            <span>Kerjasama dengan beberapa Perusahaan Besar</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Sarjana Terapan (S.Tr)</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-flask" style="font-size: 12rem; color: #1e3c72; opacity: 0.1;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <h2 class="section-title">Fokus Pembelajaran</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon"><i class="fas fa-burn"></i></div>
+                    <h3>Pirometalurgi</h3>
+                    <p>Proses peleburan, smelting, dan konversi untuk pengolahan nikel matte</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Hidrometalurgi</h3>
+                    <p>HPAL, leaching, dan pemurnian larutan nikel kobalt</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Analisis Mineral</h3>
+                    <p>XRF, AAS, XRD untuk karakterisasi bijih dan produk</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi Misi Section -->
+<section id="visi-misi" class="visi-misi" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 80px 0;">
+    <div class="container">
+        <h2 class="section-title" style="color: white; margin-bottom: 2rem;">Visi & Misi</h2>
+        
+        <div class="visi-misi-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <!-- VISI -->
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem; backdrop-filter: blur(10px);">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #ffd700;">
+                    <i class="fas fa-eye" style="margin-right: 10px;"></i>VISI
+                </h3>
+                <p style="font-size: 1.2rem; line-height: 1.8;">
+                    “Menghasilkan insan cendekia yang terampil dan profesional dalam pengembangan 
+                    teknologi metalurgi ekstraksi untuk mendukung industri pengolahan mineral 
+                    dan pemurnian logam di wilayah Benua Maritim Indonesia.”
+                </p>
+            </div>
+
+            <!-- MISI -->
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px);">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #ffd700;">
+                    <i class="fas fa-target" style="margin-right: 10px;"></i>MISI
+                </h3>
+                <ul style="text-align: left; max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-check-circle" style="color: #ffd700; position: absolute; left: 0;"></i>
+                        Menyelenggarakan pendidikan unggul berbasis industri
+                    </li>
+                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-check-circle" style="color: #ffd700; position: absolute; left: 0;"></i>
+                        Mengembangkan penelitian terapan di bidang metalurgi ekstraktif
+                    </li>
+                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-check-circle" style="color: #ffd700; position: absolute; left: 0;"></i>
+                        Mendorong inovasi dan kewirausahaan berbasis teknologi
+                    </li>
+                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-check-circle" style="color: #ffd700; position: absolute; left: 0;"></i>
+                        Menjalin kerja sama strategis dengan industri dan pemerintah
+                    </li>
+                    <li style="padding-left: 1.5rem; position: relative;">
+                        <i class="fas fa-check-circle" style="color: #ffd700; position: absolute; left: 0;"></i>
+                        Menyelenggarakan tata kelola program studi yang transparan
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- Banner Instagram Profile - SEMUA PRESTASI -->
+<section id="prestasi" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); padding: 70px 0; text-align: center;">
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+        
+        <!-- Icon Besar -->
+        <div style="font-size: 6rem; color: #ffd700; margin-bottom: 1.5rem;">
+            <i class="fas fa-trophy"></i>
+        </div>
+        
+        <h2 style="color: white; font-size: 2.8rem; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+            Prestasi Mahasiswa
+        </h2>
+        <p style="color: rgba(255,255,255,0.9); font-size: 1.3rem; margin-bottom: 2.5rem; line-height: 1.6;">
+            Lihat semua pencapaian tim TME FV UNHAS di Instagram
+        </p>
+        
+        <!-- Tombol Utama ke Instagram -->
+        <a href="https://www.instagram.com/p/DP1nbMNEv0B/?igsh=bGwzNXFtZDk0dHFy" target="_blank" style="display: inline-flex; align-items: center; gap: 1rem; background: #ffd700; color: #1e3c72; padding: 18px 35px; border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none; box-shadow: 0 10px 30px rgba(255,215,0,0.4); transition: all 0.3s;">
+            <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+            Lihat di Instagram
+        </a>
+        
+        <p style="color: rgba(255,255,255,0.7); font-size: 1rem; margin-top: 1.5rem;">
+            📱 Klik untuk buka postingan prestasi terbaru
+        </p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact" style="background: #f8f9fa; padding: 80px 0;">
+    <div class="container">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <p class="section-subtitle">Informasi lengkap pendaftaran dan program studi D4 Teknologi Metalurgi Ekstraksi</p>
+        
+        <div class="contact-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem;">
+            
+            <!-- Informasi Kontak -->
+            <div class="contact-info">
+                <h3 style="font-size: 1.8rem; color: #1e3c72; margin-bottom: 2rem;">
+                    <i class="fas fa-phone" style="color: #ffd700; margin-right: 10px;"></i>
+                    Kontak Pendaftaran
+                </h3>
+                
+                <div class="contact-item" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <i class="fas fa-map-marker-alt" style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></i>
+                    <div>
+                        <strong>Fakultas Vokasi Unhas</strong><br>
+                        Jln. Perintis Kemerdekaan Km. 10<br>
+                        Kampus Unhas Tamalanrea, Makassar
+                    </div>
+                </div>
+
+                <div class="contact-item" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <i class="fas fa-mobile-alt" style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></i>
+                    <div>
+                        <strong>08152524151</strong><br>
+                        <small>Humam Eddy P (Koordinator)</small>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <i class="fas fa-phone" style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></i>
+                    <div>
+                        <strong>081142426262</strong><br>
+                        <small>Fakultas Vokasi</small>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <i class="fas fa-envelope" style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></i>
+                    <div>
+                        <strong>tmevokasiuh@gmail.com</strong><br>
+                        <strong>vocational@unhas.ac.id</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Pendaftaran -->
+            <div class="contact-form">
+                <h3 style="font-size: 1.8rem; color: #1e3c72; margin-bottom: 1.5rem;">
+                    <i class="fas fa-paper-plane" style="color: #ffd700; margin-right: 10px;"></i>
+                    Form Kontak
+                </h3>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="nama" name="nama" placeholder="Nama Lengkap *" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email *" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="telp" name="telp" placeholder="No. WhatsApp">
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="pesan" name="pesan" placeholder="Pesan / Informasi yang dibutuhkan *" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p style="margin-bottom: 1rem;">© 2025 Program Studi D4 Teknologi Metalurgi Ekstraksi<br>
+        Fakultas Vokasi Universitas Hasanuddin</p>
+        <div style="font-size: 0.9rem; color: #999;">
+            Jln. Perintis Kemerdekaan Km. 10, Tamalanrea, Makassar
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Form Submit Handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Ambil data form
+        const nama = document.getElementById('nama').value;
+        const email = document.getElementById('email').value;
+        const telp = document.getElementById('telp').value;
+        const pesan = document.getElementById('pesan').value;
+        
+        // Simulasi kirim WhatsApp
+        const message = `Halo, saya ${nama}%0AEmail: ${email}%0ATelp: ${telp}%0A%0APesan: ${pesan}`;
+        const whatsappUrl = `https://wa.me/628152524151?text=${message}`;
+        
+        // Buka WhatsApp
+        window.open(whatsappUrl, '_blank');
+        
+        // Reset form
+        this.reset();
+        
+        // Notifikasi
+        alert('Pesan Anda terkirim! Tim kami akan menghubungi via WhatsApp.');
+    });
+
+    // Smooth scroll untuk navbar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+<style>
+/* Style tambahan untuk form */
+.contact .form-group input,
+.contact .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: #fff;
+}
+
+.contact .form-group input:focus,
+.contact .form-group textarea:focus {
+    outline: none;
+    border-color: #1e3c72;
+    box-shadow: 0 0 0 3px rgba(30,60,114,0.1);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(30,60,114,0.4);
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+</style>
